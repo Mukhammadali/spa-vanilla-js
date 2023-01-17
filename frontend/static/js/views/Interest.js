@@ -16,6 +16,7 @@ export default class extends AbstractView {
         return `
             <h1>Interests</h1>
             <p>You are viewing the interests!</p>
+            <h3>Interest title</h3>
             ${BookmarkCardHtml}
         `;
     }
