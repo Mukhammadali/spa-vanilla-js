@@ -1,4 +1,5 @@
 import Dashboard from "./views/Dashboard.js";
+import Interest from './views/Interest.js';
 import Posts from "./views/Posts.js";
 import PostView from "./views/PostView.js";
 import Settings from "./views/Settings.js";
@@ -22,6 +23,7 @@ const navigateTo = url => {
 const router = async () => {
     const routes = [
         { path: "/", view: Dashboard },
+        { path: "/interest", view: Interest },
         { path: "/posts", view: Posts },
         { path: "/posts/:id", view: PostView },
         { path: "/settings", view: Settings }
@@ -47,6 +49,9 @@ const router = async () => {
     const view = new match.route.view(getParams(match));
 
     document.querySelector("#app").innerHTML = await view.getHtml();
+    if (typeof view.getEventListeners !== undefined) {
+        await view.getEventListeners();
+    }
 };
 
 window.addEventListener("popstate", router);

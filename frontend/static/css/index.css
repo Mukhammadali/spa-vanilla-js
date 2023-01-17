@@ -35,3 +35,11 @@ body {
 a {
     color: #009579;
 }
+
+.bookmark-card {
+    height: 100px;
+    width: 200px;
+    border: 1px solid black;
+    background-color: red;
+    color: white;
+}
